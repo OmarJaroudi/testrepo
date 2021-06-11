@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 First line
+=======
+Improved First line
+>>>>>>> 5e3d1ca2637887cd5f6f19bd928af94244c6c86a
