@@ -25,4 +25,4 @@ jobs:
       - name: Install Node.js dependencies
         run: | 
           yarn
-          echo "Running on branch: $GITHUB_REF_NAME"
+          echo "Running on branch: ${GITHUB_REF_NAME} -- ${GITHUB_REF}"
