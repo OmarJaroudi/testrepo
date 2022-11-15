@@ -34,6 +34,7 @@ jobs:
       - name: Detect package manager
         id: detect-package-manager
         run: |
+          echo "Running on branch: ${GITHUB_REF} -- ${GITHUB_REF_NAME}"
           if [ -f "${{ github.workspace }}/yarn.lock" ]; then
             echo "::set-output name=manager::yarn"
             echo "::set-output name=command::install"
