@@ -1,7 +1,6 @@
-import config from 'config';
-
+import React from 'react';
 export default function Home() {
   return (
-   <div>ENV: {config.get('DEPLOY_ENV')}-{process.env.NODE_ENV}</div>
+   <div>Hey</div>
   )
 }
