@@ -24,6 +24,7 @@ concurrency:
   cancel-in-progress: true
 env:
   DEPLOY_ENV: XYZ
+  GITHUB_REF_NAME: $GITHUB_REF_NAME
 jobs:
   # Build job
   build:
@@ -34,6 +35,7 @@ jobs:
       - name: Detect package manager
         id: detect-package-manager
         run: |
+          echo "BRANCH: $GITHUB_REF_NAME"
           if [ -f "${{ github.workspace }}/yarn.lock" ]; then
             echo "::set-output name=manager::yarn"
             echo "::set-output name=command::install"
