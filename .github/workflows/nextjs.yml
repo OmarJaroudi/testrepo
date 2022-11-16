@@ -24,7 +24,7 @@ concurrency:
   cancel-in-progress: true
 env:
   DEPLOY_ENV: XYZ
-  GITHUB_REF_NAME: $GITHUB_REF_NAME
+  GITHUB_REF_NAME: "$GITHUB_REF_NAME"
 jobs:
   # Build job
   build:
