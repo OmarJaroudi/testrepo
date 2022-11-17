@@ -24,7 +24,6 @@ concurrency:
   cancel-in-progress: true
 env:
   DEPLOY_ENV: XYZ
-  GITHUB_REF_NAME: "$GITHUB_REF_NAME"
 jobs:
   # Build job
   build:
@@ -86,6 +85,8 @@ jobs:
 
   # Deployment job
   deploy:
+  env: 
+    DEPLOY_ENV: XYZ
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
