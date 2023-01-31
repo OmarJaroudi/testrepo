@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: [self-hosted, general-ubuntu]
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         run: echo "${{ github.ref_name }}"
