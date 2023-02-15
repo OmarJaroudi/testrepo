@@ -8,8 +8,8 @@ on:
       - master
 jobs:
   beta-dependencies-check:
+    runs-on: ubuntu-latest
     steps:
       - name: Beta Dependencies Check
-        runs-on: [self-hosted, general-ubuntu]
         run: ./beta-check.sh
         shell: bash
