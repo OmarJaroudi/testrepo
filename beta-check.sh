@@ -10,5 +10,5 @@ check_files() {
     done
 }
 
-check_files "$@"
+check_files (egrep -R 'beta' --include=package.json ./)
 exit $has_error
