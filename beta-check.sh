@@ -10,5 +10,6 @@ check_files() {
     done
 }
 
-check_files (egrep -R 'beta' --include=package.json ./)
+manifest_files=egrep -R 'beta' --include=package.json ./
+check_files $manifest_files
 exit $has_error
