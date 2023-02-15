@@ -8,7 +8,7 @@ on:
       - master
 jobs:
   beta-dependencies-check:
-    - name: Beta Dependencies Check
-      runs-on: [self-hosted, general-ubuntu]
-      run: ./beta-check.sh
-      shell: bash
+    name: Beta Dependencies Check
+    runs-on: [self-hosted, general-ubuntu]
+    run: ./beta-check.sh
+    shell: bash
