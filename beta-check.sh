@@ -11,5 +11,6 @@ check_files() {
 }
 
 manifest_files="$(egrep -R "beta" --include=package.json ./)"
+echo "$manifest_files"
 check_files $manifest_files
 exit $has_error
