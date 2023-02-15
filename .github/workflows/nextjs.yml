@@ -10,7 +10,7 @@ jobs:
   beta-dependencies-check:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Beta Dependencies Check
         run: ./.github/workflows/beta-check.sh ./package.json
-
         shell: bash
