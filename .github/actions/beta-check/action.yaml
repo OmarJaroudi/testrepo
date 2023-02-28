@@ -20,8 +20,5 @@ runs:
       shell: bash
     - if: ${{ inputs.internal-dep-prefix != '' }}
       name: Run Bash Script
-      run: |
-        test -d /home/runner/work/_temp
-        echo $?
-        bash /home/runner/work/_temp/beta-check.sh '@turo'
+      run: bash /home/runner/work/_temp/beta-check.sh '@turo'
       shell: bash
