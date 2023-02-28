@@ -23,7 +23,5 @@ runs:
       run: |
         test -d /home/runner/work/_temp
         echo $?
-        test -f /home/runner/work/_temp/beta-check.sh
-        echo $?
-
+        ./home/runner/work/_temp/beta-check.sh '@turo'
       shell: bash
