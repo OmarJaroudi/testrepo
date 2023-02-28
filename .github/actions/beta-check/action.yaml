@@ -21,6 +21,9 @@ runs:
     - if: ${{ inputs.internal-dep-prefix != '' }}
       name: Run Bash Script
       run: |
-        echo $(test -d /home/runner/work/_temp)
-        echo $(test -f /home/runner/work/_temp/beta-check.sh)
+        test -d /home/runner/work/_temp
+        echo $?
+        test -f /home/runner/work/_temp/beta-check.sh
+        echo $?
+
       shell: bash
