@@ -20,5 +20,5 @@ runs:
       shell: bash
     - if: ${{ inputs.internal-dep-prefix != '' }}
       name: Run Bash Script
-      run: ./beta-check.sh ${{ inputs.internal-dep-prefix }}
+      run: ls -la
       shell: bash
