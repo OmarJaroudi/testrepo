@@ -15,4 +15,4 @@ jobs:
       uses: actions/checkout@v3
     - uses: ./.github/actions/beta-check
       with:
-        internal-dep-prefix: '@turo'
+        internal-dependency-prefixes: '@turo'
