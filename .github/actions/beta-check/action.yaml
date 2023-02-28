@@ -1,0 +1,24 @@
+name: Beta Release Check
+inputs:
+  internal-dep-prefix:
+    required: false
+    description: Internal Dependency Prefix. This is used to match internal dependencies and disallow beta versions for them.    
+    default: ""
+runs:
+  using: composite
+  steps:
+    - run: |
+        cat << 'EOF' > "${{ runner.temp }}/beta-check.sh"
+        set -e 
+        delimited_prefixes=$(sed 's/ *, */|/g' <<< $1)
+        if egrep "($delimited_prefixes).*\-beta\-" package.json; then
+          echo "ERROR: package should not have an internal beta dependency."
+          exit 1
+        fi
+        EOF
+        chmod +x ${{ runner.temp }}/beta-check.sh
+      shell: bash
+    - if: ${{ inputs.internal-dep-prefix != '' }}
+      name: Run Bash Script
+      run: .${{ runner.temp }}/beta-check.sh ${{ inputs.internal-dep-prefix }}
+      shell: bash
