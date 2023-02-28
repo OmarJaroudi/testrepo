@@ -23,5 +23,5 @@ runs:
       run: |
         test -d /home/runner/work/_temp
         echo $?
-        bash ./home/runner/work/_temp/beta-check.sh '@turo'
+        bash /home/runner/work/_temp/beta-check.sh '@turo'
       shell: bash
