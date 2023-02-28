@@ -9,7 +9,8 @@ runs:
   steps:
     - run: |
         cat << 'EOF' > "${{ runner.temp }}/beta-check.sh"
-        set -e 
+        set -e
+        echo Running
         delimited_prefixes=$(sed 's/ *, */|/g' <<< $1)
         if egrep "($delimited_prefixes).*\-beta\-" package.json; then
           echo "ERROR: package should not have an internal beta dependency."
@@ -20,5 +21,5 @@ runs:
       shell: bash
     - if: ${{ inputs.internal-dep-prefix != '' }}
       name: Run Bash Script
-      run: bash /home/runner/work/_temp/beta-check.sh '@turo'
+      run: bash ${{ runner.temp }}.beta-check.sh '@turo'
       shell: bash

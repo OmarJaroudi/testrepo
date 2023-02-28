@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@turo/next": "1.0.0-beta-bla",
     "@types/config": "^3.3.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
