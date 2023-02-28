@@ -21,4 +21,5 @@ runs:
       shell: bash
     - if: ${{ inputs.internal-dep-prefix != '' }}
       name: Run Bash Script
-      run: bash ${{ runner.temp }}/beta-check.sh '@turo'
+      run:  .${{ runner.temp }}/beta-check.sh '@turo'
+      shell: bash
