@@ -3,7 +3,6 @@ inputs:
   internal-dependency-prefixes:
     required: false
     description: Internal Dependency Prefix. This is used to match internal dependencies and disallow beta versions for them.    
-    default: ""
 runs:
   using: composite
   steps:
