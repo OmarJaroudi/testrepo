@@ -7,5 +7,5 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: echo ${{ internal-dependency-prefixes }}
+    - run: echo here ${{ inputs.internal-dependency-prefixes }}
       shell: bash
