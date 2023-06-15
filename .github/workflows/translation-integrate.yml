@@ -10,7 +10,7 @@ jobs:
       CROWDIN_PROJECT_ID: 595315
       CROWDIN_PERSONAL_TOKEN: a31f27bdaa71a0c3951b4e243c0666f217841051ffbb325535180cfd7f7fc7f19c570c21ce29117b
     name: Integrate translations
-    runs-on: [self-hosted, general-ubuntu]
+    runs-on: ubunutu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Setup tools
