@@ -25,8 +25,18 @@ jobs:
       - name: Download translations from Crowdin
         uses: crowdin/github-action@v1
         with:
-          create_pull_request: true
+          create_pull_request: false
           download_translations: true
           push_translations: false
           upload_sources: false
           upload_translations: false
+      - name: Create pull request
+        if: steps.crowdin-branch.outputs.name == ''
+        uses: peter-evans/create-pull-request@v4
+        with:
+          body: "Automatic pull request to integrate translations after running the 'translations-integrate.yaml' GHA workflow."
+          branch: "c/integrate_translations"
+          commit-message: "fix: integrate translations"
+          reviewers: ${{ github.actor }}
+          title: "fix: integrate translations"
+          token: ${{ secrets.GITHUB_TOKEN }}
