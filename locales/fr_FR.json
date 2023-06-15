@@ -2,5 +2,6 @@
     "key_to_translate": "Ceci est un test",
     "dev_key": "Ceci est une traduction depuis une branche de développement",
     "dev_key2": "Deuxième clé ici",
-    "dev_key3": "Troisième clé ici"
+    "dev_key3": "Troisième clé ici",
+    "dev_key4": "Quatrième clé ici"
 }
