@@ -22,6 +22,9 @@ jobs:
         id: crowdin-branch
         run: |
           echo "name=${{ steps.branch.outputs.sanitized-branch-name }}" >> "$GITHUB_OUTPUT"
+      - name: Check translation status in Crowdin
+        run: |
+          crowdin status proofreading ${{ format('--branch={0}', steps.crowdin-branch.outputs.name) }} --no-progress --fail-if-incomplete
       - name: Download translations from Crowdin
         uses: crowdin/github-action@v1
         with:
