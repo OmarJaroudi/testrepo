@@ -27,6 +27,7 @@ jobs:
           upload_translations: true
           upload_translations_args: "--translate-hidden"
           delete_crowdin_branch: ${{ steps.branch.outputs.sanitized-branch-name }}
+          auto_approve_imported: ${{ steps.branch.outputs.sanitized-branch-name }} == 'main'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CROWDIN_PROJECT_ID: 595315
