@@ -4,4 +4,4 @@ api_token_env: CROWDIN_PERSONAL_TOKEN
 
 files:
   - source: "/locales/en_US.json"
-    translation: "/locales/%locale_with_underscore%.json"
+    translation: "/locales/fr_FR.json"
