@@ -6,5 +6,5 @@
     "dev_key4": "Quatrième clé ici",
     "dev_key5": "Sources seulement",
     "dummy_key": "Simuler un run stable",
-    "unhappy_path": "Baguette"
+    "unhappy_path": "n'a pas traversé crowdin"
 }
