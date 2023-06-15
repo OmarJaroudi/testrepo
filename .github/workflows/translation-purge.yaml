@@ -1,6 +1,7 @@
 name: Translations - Purge
 
 on:
+  workflow_dispatch:
   pull_request:
     types: ["closed"]
   
