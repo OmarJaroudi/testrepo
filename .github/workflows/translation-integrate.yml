@@ -13,7 +13,6 @@ jobs:
     runs-on: [self-hosted, general-ubuntu]
     steps:
       - uses: actions/checkout@v3
-        with:
       - name: Setup tools
         uses: open-turo/action-setup-tools@v1
       - name: Sanitize branch name
