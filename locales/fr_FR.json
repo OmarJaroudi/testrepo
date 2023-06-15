@@ -1,3 +1,4 @@
 {
-    "key_to_translate": "Ceci est un test"
+    "key_to_translate": "Ceci est un test",
+    "dev_key": "Ceci est une traduction depuis une branche de développement"
 }
