@@ -6,5 +6,6 @@
     "dev_key4": "Fourth key here",
     "dev_key5": "Sources only",
     "dummy_key": "Simulating a stable run",
-    "unhappy_path": "did not go through crowdin"
+    "unhappy_path": "did not go through crowdin",
+    "sanity_check": "Last check before takeoff"
 }
