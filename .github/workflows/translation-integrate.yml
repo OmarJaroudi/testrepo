@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup tools
-        uses: open-turo/action-setup-tools@v1
+      - name: Install Crowdin CLI
+        run: npm i -g @crowdin/cli
       - name: Sanitize branch name
         id: branch
         uses: transferwise/sanitize-branch-name@v1
