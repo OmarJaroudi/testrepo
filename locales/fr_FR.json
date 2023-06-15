@@ -5,5 +5,6 @@
     "dev_key3": "Troisième clé ici",
     "dev_key4": "Quatrième clé ici",
     "dev_key5": "Sources seulement",
-    "dummy_key": "Simuler un run stable"
+    "dummy_key": "Simuler un run stable",
+    "unhappy_path": "Baguette"
 }
