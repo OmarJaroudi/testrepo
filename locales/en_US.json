@@ -4,5 +4,6 @@
     "dev_key2": "Second key here",
     "dev_key3": "Third key here",
     "dev_key4": "Fourth key here",
-    "dev_key5": "Sources only"
+    "dev_key5": "Sources only",
+    "dummy_key": "Simulating a stable run"
 }
