@@ -24,7 +24,7 @@ jobs:
         with:
           push_translations: false
           upload_sources: true
-          upload_translations: true
+          upload_translations: false
           upload_translations_args: "--translate-hidden"
           delete_crowdin_branch: ${{ steps.branch.outputs.sanitized-branch-name }}
         env:
