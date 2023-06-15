@@ -5,7 +5,7 @@ on:
   repository_dispatch:
     types: [integrate-translations-master]
     branches:
-      - main
+      - ooga-booga
 
 jobs:
   translations-integrate:
