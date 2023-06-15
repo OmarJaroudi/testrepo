@@ -14,7 +14,6 @@ jobs:
         uses: transferwise/sanitize-branch-name@v1
       - name: Set Crowdin branch name
         id: crowdin-branch
-        if: github.ref_name != 'main'
         run: |
           echo "name=${{ steps.branch.outputs.sanitized-branch-name }}" >> "$GITHUB_OUTPUT"
       - name: Push translations to Crowdin
