@@ -7,5 +7,6 @@
     "dev_key5": "Sources only",
     "dummy_key": "Simulating a stable run",
     "unhappy_path": "did not go through crowdin",
-    "sanity_check": "Last check before takeoff"
+    "sanity_check": "Last check before takeoff",
+    "another_sanity_check": "Can never be too safe"
 }
