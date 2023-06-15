@@ -26,7 +26,6 @@ jobs:
         uses: crowdin/github-action@v1
         with:
           create_pull_request: true
-          crowdin_branch_name: ${{ steps.crowdin-branch.outputs.name }}
           download_translations: true
           push_translations: false
           upload_sources: false
