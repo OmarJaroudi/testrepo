@@ -1,9 +1,8 @@
-name: CI
+name: Translations
 
 on:
   workflow_dispatch:
-  push:
-
+  
 jobs:
   translations-push:
     name: Upload translations
