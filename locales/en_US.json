@@ -1,5 +1,4 @@
 {
     "key_to_translate": "This is a test",
-    "dev_key": "This is a translation from a dev branch",
-    "dev_key2": "Second dev key"
+    "dev_key": "This is a translation from a dev branch"
 }
