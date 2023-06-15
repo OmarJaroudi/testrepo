@@ -17,4 +17,11 @@ jobs:
           fetch-depth: 0
       - name: Install Crowdin CLI
         run: npm i -g @crowdin/cli
-      - run: crowdin -V
+      - name: Sanitize branch name
+        id: branch
+        uses: transferwise/sanitize-branch-name@v1
+      - name: Set Crowdin branch name
+        id: crowdin-branch
+        run: |
+          echo "name=${{ steps.branch.outputs.sanitized-branch-name }}" >> "$GITHUB_OUTPUT"
+      - run: crowdin status proofreading ${{ format('--branch={0}', steps.crowdin-branch.outputs.name) }} --no-progress --fail-if-incomplete
