@@ -23,7 +23,7 @@ jobs:
           crowdin_branch_name: ${{ steps.crowdin-branch.outputs.name }}
           push_translations: false
           upload_sources: true
-          upload_translations: true
+          upload_translations: false
           upload_translations_args: "--translate-hidden"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
