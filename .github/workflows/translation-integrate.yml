@@ -4,8 +4,6 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [integrate-translations-master]
-    branches:
-      - ooga-booga
 
 jobs:
   translations-integrate:
