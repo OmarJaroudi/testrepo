@@ -6,7 +6,6 @@ on:
 
 jobs:
   translations-push:
-    env:
     name: Upload translations
     runs-on: ubuntu-latest
     steps:
