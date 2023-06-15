@@ -1,0 +1,37 @@
+name: Translations - Integrate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  translations-integrate:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      CROWDIN_PROJECT_ID: 595315
+      CROWDIN_PERSONAL_TOKEN: a31f27bdaa71a0c3951b4e243c0666f217841051ffbb325535180cfd7f7fc7f19c570c21ce29117b
+    name: Integrate translations
+    runs-on: [self-hosted, general-ubuntu]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+      - name: Setup tools
+        uses: open-turo/action-setup-tools@v1
+      - name: Sanitize branch name
+        id: branch
+        uses: transferwise/sanitize-branch-name@v1
+      - name: Set Crowdin branch name
+        id: crowdin-branch
+        run: |
+          echo "name=${{ steps.branch.outputs.sanitized-branch-name }}" >> "$GITHUB_OUTPUT"
+      - name: Check translation status in Crowdin
+        run: |
+          crowdin status proofreading ${{ steps.crowdin-branch.outputs.name != '' && format('--branch={0}', steps.crowdin-branch.outputs.name) || '' }} --no-progress | grep "100%" && exit 0 || exit 1
+      - name: Download translations from Crowdin
+        uses: crowdin/github-action@v1
+        with:
+          create_pull_request: true
+          crowdin_branch_name: ${{ steps.crowdin-branch.outputs.name }}
+          download_translations: true
+          push_translations: false
+          upload_sources: false
+          upload_translations: false
