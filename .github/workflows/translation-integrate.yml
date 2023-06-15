@@ -2,6 +2,10 @@ name: Translations - Integrate
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [integrate-translations-master]
+    branches:
+      - main
 
 jobs:
   translations-integrate:
