@@ -1,0 +1,37 @@
+name: Sandbox
+
+on:
+  workflow_dispatch:
+
+jobs:
+  html-file:
+    name: HTML File
+    runs-on: ubunut-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check for release notes comment
+        if: success() || failure()
+        uses: peter-evans/find-comment@v1
+        id: bundle-stats
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: ' <!-- bundle stats report -->'
+      - name: Delete previous release note
+        if: steps.bundle-stats.outputs.comment-id != ''
+        uses: jungwinter/comment@v1
+        with:
+          type: delete
+          comment_id: ${{ steps.bundle-stats.outputs.comment-id }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Comment bundle stats report link
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.number }}
+          body: |
+            ## Bundle Stats Report
+            Below is a bundle stats report for this PR
+
+            ---
+            <!-- bundle stats report -->
+            Link to HTML page: [File.html](https://github.com/${{ github.repository }}/blob/${{ github.sha }}/locales/file.html)
