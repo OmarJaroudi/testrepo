@@ -6,7 +6,7 @@ on:
 jobs:
   html-file:
     name: HTML File
-    runs-on: ubunut-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Check for release notes comment
