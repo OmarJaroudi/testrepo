@@ -7,47 +7,11 @@ on:
 
 jobs:
   translations-integrate:
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      CROWDIN_PROJECT_ID: 595315
-      CROWDIN_PERSONAL_TOKEN: a31f27bdaa71a0c3951b4e243c0666f217841051ffbb325535180cfd7f7fc7f19c570c21ce29117b
     name: Integrate translations
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Install Crowdin CLI
-        run: npm i -g @crowdin/cli
-      - name: Sanitize branch name
-        id: branch
-        uses: transferwise/sanitize-branch-name@v1
-      - name: Set Crowdin branch name
-        id: crowdin-branch
+      - name: Print file content
         run: |
-          echo "name=${{ steps.branch.outputs.sanitized-branch-name }}" >> "$GITHUB_OUTPUT"
-      - name: Check translation status in Crowdin
-        run: |
-          crowdin status proofreading ${{ format('--branch={0}', steps.crowdin-branch.outputs.name) }} --no-progress --fail-if-incomplete
-      - name: Download translations from Crowdin
-        uses: crowdin/github-action@v1
-        with:
-          create_pull_request: false
-          crowdin_branch_name: ${{ steps.crowdin-branch.outputs.name }}
-          download_translations: true
-          push_translations: false
-          upload_sources: false
-          upload_translations: false
-      - name: Commit changes on branch
-        if: steps.crowdin-branch.outputs.name != 'main'
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "fix: integrate translations"
-      - name: Create pull request
-        if: steps.crowdin-branch.outputs.name == 'main'
-        uses: peter-evans/create-pull-request@v4
-        with:
-          body: "Automatic pull request to integrate translations after running the 'translations-integrate.yaml' GHA workflow."
-          branch: "c/integrate_translations"
-          commit-message: "fix: integrate translations"
-          reviewers: ${{ github.actor }}
-          title: "fix: integrate translations"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          echo "The file content:"
+          cat ${{ github.event.client_payload.file }}
