@@ -10,11 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Integrate translations from main branch
-        uses: peter-evans/repository-dispatch@v2
         with:
-          event-type: integrate-translations-master
-          client-payload: |
-            {
-              "file": "${{ github.workspace }}/file.txt"
-            }
+          ref: main
+      - name: Sanitize head branch name
+        id: branch
+        uses: transferwise/sanitize-branch-name@v1
+      - run: echo ${{ steps.branch.outputs.sanitized-branch-name }}
