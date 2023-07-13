@@ -6,9 +6,9 @@ jobs:
   auto-approve:
     name: auto-approve
     runs-on: ubuntu-latest
+    if: $(${{ github.event.pull_request.title }} =~ "chore.*")
     steps:
       - uses: hmarr/auto-approve-action@v3
-        if: $(${{ github.event.pull_request.title }} =~ "chore.*")
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           review-message: "Auto approved Renovatebot PR"
