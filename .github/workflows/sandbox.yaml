@@ -1,22 +1,14 @@
-name: Sandbox
+name: Update dependencies - Auto approve
 
 on:
-  workflow_dispatch:
-
+  pull_request_target:
 jobs:
-  html-file:
-    name: HTML File
+  auto-approve:
+    name: auto-approve
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Comment bundle stats report link
-        uses: peter-evans/create-or-update-comment@v1
+      - uses: hmarr/auto-approve-action@v3
+        if: $(${{ github.event.pull_request.title }} =~ "chore.*")
         with:
-          issue-number: ${{ github.event.number }}
-          body: |
-            ## Bundle Stats Report
-            Below is a bundle stats report for this PR
-
-            ---
-            <!-- bundle stats report -->
-            Link to HTML page: [File.html](https://github.com/${{ github.repository }}/blob/${{ github.sha }}/locales/file.html)
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          review-message: "Auto approved Renovatebot PR"
