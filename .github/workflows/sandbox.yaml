@@ -6,7 +6,7 @@ jobs:
   auto-approve:
     name: auto-approve
     runs-on: ubuntu-latest
-    if: $(${{ github.event.pull_request.title }} =~ "chore.*")
+    if: ${{ contains(github.event.pull_request.title, 'chore') }}
     steps:
       - uses: hmarr/auto-approve-action@v3
         with:
