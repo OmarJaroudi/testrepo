@@ -1,20 +1,14 @@
-name: Sandbox
+name: Update dependencies - Auto approve
 
 on:
-  pull_request:
-  workflow_dispatch:
-
+  pull_request_target:
 jobs:
-  html-file:
-    name: HTML File
+  auto-approve:
+    name: auto-approve
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: hmarr/auto-approve-action@v3
+        if: $(${{ github.event.pull_request.title }} =~ "chore.*")
         with:
-          ref: main
-      - name: Sanitize head branch name
-        id: head-branch
-        run: echo "$(${{ github.head_ref }} | tr "/" "-")"
-      - name: Sanitize base branch name
-        id: base-branch
-        run: echo "$(${{ github.base_ref }} | tr "/" "-")"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          review-message: "Auto approved Renovatebot PR"
