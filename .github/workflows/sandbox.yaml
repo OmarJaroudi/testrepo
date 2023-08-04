@@ -10,6 +10,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Semantic Release
-        uses: OmarJaroudi/semantic-release-action@2daea40ecf4a46bdc85205c376033f0e9cb99d70
+        uses: OmarJaroudi/semantic-release-action@0232c23bbf86fc97db79b20f01dc72f95aa9d581
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
