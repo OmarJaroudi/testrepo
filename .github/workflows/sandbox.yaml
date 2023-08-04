@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
       - name: Semantic Release
         uses: OmarJaroudi/semantic-release-action@5820021d1554006c7fcacc5c2908d9a25fb0097c
         env:
