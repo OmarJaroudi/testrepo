@@ -1,15 +1,15 @@
-name: Update dependencies - Auto approve
+name: Semantic Release
 
 on:
-  pull_request_target:
-    types:
-      - opened
+  workflow_dispatch:
 jobs:
-  auto-approve:
-    name: auto-approve
+  semantic-release:
+    name: Semantic Release
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.title, 'chore')
     steps:
-      - uses: hmarr/auto-approve-action@v3
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Semantic Release
+        uses: OmarJaroudi/semantic-release-action@2daea40ecf4a46bdc85205c376033f0e9cb99d70
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
