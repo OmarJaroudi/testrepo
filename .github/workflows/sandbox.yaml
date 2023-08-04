@@ -18,6 +18,6 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Semantic Release
-        uses: OmarJaroudi/semantic-release-action@5820021d1554006c7fcacc5c2908d9a25fb0097c
+        uses: OmarJaroudi/semantic-release-action@2ff099481fb1e0fed75d06062d45fd209fdac253
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
