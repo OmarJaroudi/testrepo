@@ -18,6 +18,4 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Semantic Release
-        uses: OmarJaroudi/semantic-release-action@2cb02dd97cdb2ee5a0f3ef017a57a8d164b1d67f
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo ${{ github.event.issue.pull_request }}
