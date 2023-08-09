@@ -18,4 +18,4 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Semantic Release
-        run: echo ${{ github.event.issue.pull_request }}
+        run: echo ${{ github.event.issue }}
