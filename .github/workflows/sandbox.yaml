@@ -2,6 +2,7 @@ name: Semantic Release
 
 on:
   workflow_dispatch:
+  pull_request:
 jobs:
   semantic-release:
     name: Semantic Release
@@ -18,4 +19,4 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Semantic Release
-        run: echo ${{ github.event.issue }}
+        run: echo ${{ github.event.issue.pull_request }}
