@@ -15,7 +15,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Check if remote branch exists
+        id: check-branch
+        run: |
+          git ls-remote --exit-code --heads origin ${{ github.event.inputs.branch }}
+          echo "::set-output name=branch_exists::true"
+        continue-on-error: true  # Continue even if the branch doesn't exist
       - name: Get latest commit message
+        if: steps.check-branch.outputs.branch_exists == 'true'
         id: latest-commit
         run: |
           git fetch origin ${{ github.event.inputs.branch }}
