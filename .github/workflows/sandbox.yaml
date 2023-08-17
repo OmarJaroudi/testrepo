@@ -12,7 +12,16 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run custom action
+        id: latest-commit
         uses: OmarJaroudi/get-latest-commit@bootstrap-pr
         with: 
           branch-name: testbranch
+
+      - name: Print commit info
+        run: |
+         echo "Commit sha ${{ steps.latest-commit.outputs.commit-sha }}"
+         echo "Commit author ${{ steps.latest-commit.outputs.commit-author }}"
+         echo "Commit message ${{ steps.latest-commit.outputs.commit-message }}"
+
+    
       
