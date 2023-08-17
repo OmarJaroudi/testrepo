@@ -14,5 +14,5 @@ jobs:
       - name: Run custom action
         uses: OmarJaroudi/get-latest-commit@bootstrap-pr
         with: 
-          brnach-name: testbranch
+          branch-name: testbranch
       
