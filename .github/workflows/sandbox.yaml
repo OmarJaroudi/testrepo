@@ -13,15 +13,15 @@ jobs:
 
       - name: Run custom action
         id: latest-commit
-        uses: OmarJaroudi/get-latest-commit@bootstrap-pr
+        uses: OmarJaroudi/get-latest-commit@v1
         with: 
           branch-name: testbranch
 
       - name: Print commit info
         run: |
-         echo "Commit sha ${{ steps.latest-commit.outputs.commit-sha }}"
-         echo "Commit author ${{ steps.latest-commit.outputs.commit-author }}"
-         echo "Commit message ${{ steps.latest-commit.outputs.commit-message }}"
+         echo "Commit sha ${{ steps.latest-commit.outputs.sha }}"
+         echo "Commit author ${{ steps.latest-commit.outputs.author }}"
+         echo "Commit message ${{ steps.latest-commit.outputs.message }}"
 
     
       
