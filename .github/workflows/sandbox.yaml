@@ -4,16 +4,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  get-latest-commit-message:
+  sandbox:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: compare
-        if: >
-          '2' == '2'
-          && '1' != '1'
-        run: echo 'here'
+      - name: Check for .pre-commit-config file
+        id: check_pre_commit_config
+        uses: andstor/file-existence-action@v2
+        with:
+          files: ".pre-commit-config.yaml, .pre-commit-config.yml"
+      - name: Pre-commit
+        if: steps.check_pre_commit_config.outputs.files_exists == 'true'
+        run: echo "Found file"
     
       
