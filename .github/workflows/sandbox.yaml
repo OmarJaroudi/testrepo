@@ -14,7 +14,7 @@ jobs:
         id: check_pre_commit_config
         uses: andstor/file-existence-action@v2
         with:
-          files: ".pre-commit-config.*"
+          files: .pre-commit-config.*
       - name: Pre-commit
         if: steps.check_pre_commit_config.outputs.files_exists == 'true'
         run: echo "Found file"
